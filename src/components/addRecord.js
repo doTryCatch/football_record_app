@@ -47,7 +47,7 @@ const Add = () => {
     
     <section className="add m-2 flex-1 space-y-4 ">
       <hr />
-      <header className="title text-center text-white text-[30px]"> <h1>New Entry Area</h1></header>
+      <header className="title text-center  text-[30px]"> <h1>New Entry Area</h1></header>
      
         <form onSubmit={handleSubmit} className="space-y-4">
         <div className="container flex space-x-2">

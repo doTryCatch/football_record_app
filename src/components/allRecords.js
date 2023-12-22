@@ -8,7 +8,7 @@ function AllRecords({data}) {
       <h1>All Records</h1>
       </div>
       <hr />
-    <Table className="text-center border-solid m-2">
+    <Table className="text-center m-4">
     <thead>
       <tr>
         <th>SN.</th>

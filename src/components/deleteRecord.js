@@ -9,7 +9,7 @@ const Delete = () => {
     try {
       
       
-     await axios.delete("http://localhost:3002/", {
+     await axios.delete("http://localhost:3001/", {
         headers: {
             'Content-Type': 'application/json',
             // Add any other headers as needed (e.g., authentication headers)
@@ -48,7 +48,7 @@ const Delete = () => {
 
     <div className="deleteContainer space-y-4">
       <hr />
-        <div className="head text-white text-bold text-[30px] text-center">
+        <div className="head  text-bold text-[30px] text-center">
             <h1>Delete Area</h1>
         </div>
 
@@ -96,9 +96,9 @@ const Delete = () => {
           
 
           <button type="submit" className="form-button">
-            Deletel
+            Delete
           </button>
-          {state?( <h1 className="text-white">{state}</h1>):(<></>)}
+          {state?( <h1 className="">{state}</h1>):(<></>)}
          
           </div>
         </form>

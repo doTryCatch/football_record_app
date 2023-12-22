@@ -6,7 +6,7 @@ function AverageGoalFor({data}) {
     <div className="head text-bold text-[20px] text-center">
       
       <h1>Average GoalsFor Include for {data[0].Year}</h1>
-      </div>
+      </div>  
       <hr />
     <Table className="text-center border-solid m-2">
     <thead>

@@ -44,7 +44,7 @@ const Update=()=>{
 return(
     <div className="updateContainer space-y-4">
         <hr />
-        <div className="head text-white text-bold text-[30px] text-center">
+        <div className="head  text-bold text-[30px] text-center">
             <h1>Update Area</h1>
         </div>
 
@@ -121,7 +121,7 @@ return(
           <button type="submit" className="form-button">
             Submit
           </button>
-          {state?( <h1 className="text-white">{state}</h1>):(<></>)}
+          {state?( <h1 className="">{state}</h1>):(<></>)}
          
           </div>
         </form>

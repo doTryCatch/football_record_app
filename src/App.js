@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route,  Routes } from 'react-router-dom';
-import Layout from './components/layout';
+import Layout from './utils/layout';
 
-import Add from './components/addData';
+import Add from './components/addRecord'
 import Update from "./components/updateData"
 import Delete from "./components/deleteRecord"
 

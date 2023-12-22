@@ -7,8 +7,8 @@ function Total_win_draw__matchPlayed({data}) {
       
             <h1>Total Number of (matchPlayed, Win and Draw)</h1>
             <hr />
-            <div className="info">
-            <Table className="text-center border-solid m-4">
+    <div className="info">
+    <Table className="text-center border-solid m-4">
     <thead>
       <tr>
         <th>SN.</th>
