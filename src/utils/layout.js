@@ -3,54 +3,51 @@ import { Link } from 'react-router-dom';
 import Display from './Records';
 
 const Layout = ({ children }) => {
-const [filterParameter,setFilter]=useState({})
-const [WDL,setWdl]=useState("")
-const [FTR,setFtr]=useState("")
-const [AGF,setAgf]=useState("")
+const [filterMode,setFilter]=useState({})
+const [WinDrawLoss,setWdl]=useState("")
+const [FirstTenRecord,setFtr]=useState("")
+const [AverageGoalFor,setAgf]=useState("")
 
-  const inputHandler=(e)=>{
-   switch (e.target.value) {
-   
-    case "AGF":
-      AGF.length<4?alert("not valid input"):setFilter({mode:"AGF",input:AGF})
-      setWdl("")
-      setFtr("")
-      
-    break;
-    case "FTR":
-      FTR.length<=0?alert("not valid input"):setFilter({mode:"FTR",input:FTR})
-      setWdl("")
-      setAgf("")
-      
-    break;
-    case "WDL":
-      WDL.length<4?alert("not valid input"):setFilter({mode:"WDL",input:WDL})
-      setAgf("")
-      setFtr("")
-      
-    break;
-    case "":
-     setFilter({mode:"",input:""})
-      setAgf("")
-      setFtr("")
-      setWdl("")
-      
-    break;
-   
-    default:
-      break;
-   }
-   
-}
-
+const inputHandler = (e) => {
+  if (e.target.value === "AGF") {
+    if (AverageGoalFor.length < 4) {
+      alert("not valid input");
+    } else {
+      setFilter({ mode: "AGF", input: AverageGoalFor });
+      setWdl("");
+      setFtr("");
+    }
+  } else if (e.target.value === "FTR") {
+    if (FirstTenRecord.length <= 0) {
+      alert("not valid input");
+    } else {
+      setFilter({ mode: "FTR", input: FirstTenRecord });
+      setWdl("");
+      setAgf("");
+    }
+  } else if (e.target.value === "WDL") {
+    if (WinDrawLoss.length < 4) {
+      alert("not valid input");
+    } else {
+      setFilter({ mode: "WDL", input: WinDrawLoss });
+      setAgf("");
+      setFtr("");
+    }
+  } else if (e.target.value === "") {
+    setFilter({ mode: "", input: "" });
+    setAgf("");
+    setFtr("");
+    setWdl("");
+  }
+};
 
 
   return (
-    <div className="app-container flex">
-      <header className="app-header">
-        <nav className='m-4 w-[25%]'>
-          <ul className=' space-y-14 text-bold text-[20px] '>
-            <li><Link to="/">Home</Link></li>
+    <div className="app-container flex w-full">
+      <header className="app-header bg-slate-600 w-[15%]">
+        <nav className=' w-[100%] '>
+          <ul className=' space-y-4 text-bold text-[20px] '>
+            <li><Link to="/">Dashboard</Link></li>
             <li><Link to="/Add">Add</Link></li>
             <li><Link to="/Update">Update</Link></li>
             <li><Link to="/Delete">Delete</Link></li>
@@ -59,28 +56,26 @@ const [AGF,setAgf]=useState("")
         </nav>
       </header>
       <hr />
-      <div className="border bg-white h-[80vh] w-[1px] m-4">
-
-</div>
-      <div className="main_body flex w-full ">
+    
+      <div className="  Display_body flex w-[85%] ml-10 ">
      
       
-      <div className="components h-[100vh]  w-[80%] ">
+      <div className="components h-[100vh]  w-[100%] ">
       
         <div className="body-content h-full">
-        <Display component={filterParameter}/>
+        <Display component={filterMode}/>
       {children}
         </div>
        
       </div>
-      <div className="filter  flex items-center justify-center min-W-[20%] ">
+      <div className="filter  flex items-center justify-center min-W-[10%] ">
            <div className="filter-container w-[90%]    space-y-2ari">
         
           <div className="total_game_played_draw_and_won space-x-6">
             <label htmlFor="won_draw_played" className='form-label'> Enter year to get data of total gamePlayed, Win and Draw</label>
-            <div className="WDL-Input flex space-x-2 ">
+            <div className="WinDrawLoss-Input flex space-x-2 ">
          
-            <input  className="form-input" type="number" id="WDL" name="year" pattern="\d{4}" placeholder='Year' value={WDL} onChange={(e)=>{setWdl(e.target.value)} }  min="1900" max={new Date().getFullYear()} />
+            <input  className="form-input" type="number" id="WinDrawLoss" name="year" pattern="\d{4}" placeholder='Year' value={WinDrawLoss} onChange={(e)=>{setWdl(e.target.value)} }  min="1900" max={new Date().getFullYear()} />
             <button className=' outline outline-1 h-11 w-16  bg-yellow-400 hover:bg-green-400    rounded-lg text-bold' value="WDL" onClick={inputHandler}>Filter</button>
             </div>
           
@@ -89,9 +84,9 @@ const [AGF,setAgf]=useState("")
          
           <div className="average_goal_for space-x-6">
           <label htmlFor="won record" className='form-label'> Enter year to get data of team  With Average GoalFor </label>
-          <div className="AGF-Input flex space-x-2 ">
+          <div className="FirstTenRecord-Input flex space-x-2 ">
          
-         <input  className="form-input w-[50%]" type="number" id="AGF" name="year" pattern="\d{4}" placeholder='Year' value={AGF}onChange={(e)=>{setAgf(e.target.value)}}  min="1990" max={new Date().getFullYear()} required />
+         <input  className="form-input w-[50%]" type="number" id="FirstTenRecord" name="year" pattern="\d{4}" placeholder='Year' value={AverageGoalFor}onChange={(e)=>{setAgf(e.target.value)}}  min="1990" max={new Date().getFullYear()} required />
          <button className=' outline outline-1 h-11 w-16  bg-yellow-400 hover:bg-green-400    rounded-lg text-bold' value="AGF" onClick={inputHandler}>Filter</button>
          </div>
           
@@ -99,9 +94,9 @@ const [AGF,setAgf]=useState("")
           </div>
           <div className="first_ten_record  space-x-6">
           <label htmlFor="won record" className='form-label'>Enter Won number to get Top-Ten Team Record for Goal {">"}entered goal  </label>
-          <div className="FTR-Input flex space-x-2 ">
+          <div className="FirstTenRecord-Input flex space-x-2 ">
          
-            <input  className="form-input w-[50%]" type="number" id="FTR" name="year" pattern="\d{4}" placeholder='Number of Goal' value={FTR}onChange={(e)=>{setFtr(e.target.value)}}  min="0" />
+            <input  className="form-input w-[50%]" type="number" id="FirstTenRecord" name="year" pattern="\d{4}" placeholder='Number of Goal' value={FirstTenRecord}onChange={(e)=>{setFtr(e.target.value)}}  min="0" />
            <button className=' outline outline-1 h-11 w-16  bg-yellow-400 hover:bg-green-400    rounded-lg text-bold' value="FTR" onClick={inputHandler}>Filter</button>
            </div>
             
@@ -123,9 +118,7 @@ const [AGF,setAgf]=useState("")
       
 
    
-      <footer className="app-footer">
-        {/* Your footer content goes here */}
-      </footer>
+  
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios";
-const Update=()=>{
+export default function Update(){
     const [team, setTeam] = useState("");
     const [field,setField]=useState("");
     const [newValue,setValue]=useState("")
@@ -66,7 +66,7 @@ return(
           <div className="flex-2 pr-3">
 
             <label className="form-label" htmlFor="team">
-              which field to update:
+              which key element to update:
             </label>
             <select name="fields" id="fieldValue"  className="form-input"onChange={(e)=>setField(e.target.value)}>
                 <option value="Team">TeamName</option>
@@ -99,7 +99,7 @@ return(
           </div>
           <div className="flex-2 pr-3">
             <label className="form-label" htmlFor="team">
-              New Value:
+              update_value:
             </label>
             <input
               className="form-input"
@@ -118,7 +118,7 @@ return(
 
           
 
-          <button type="submit" className="form-button">
+          <button type="submit" className="form-button outline outline-1 h-11 bg-yellow-400 hover:bg-green-400  w-[200px] rounded-lg text-bold">
             Submit
           </button>
           {state?( <h1 className="">{state}</h1>):(<></>)}
@@ -128,4 +128,3 @@ return(
     </div>
 )
 }
-export default Update;

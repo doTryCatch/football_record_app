@@ -10,12 +10,17 @@ function Total_win_draw__matchPlayed({data}) {
     <div className="info">
     <Table className="text-center border-solid m-4">
     <thead>
-      <tr>
+    <tr>
         <th>SN.</th>
-        <th>Games Played</th>
-        <th>Win</th>
-        <th>Draw</th>
-        <th>Year</th>
+      
+       
+        {Object.keys(data[0]).map((key, idx) => 
+   
+         (<th key={idx}>{key}</th>)
+    
+   
+)}
+
       </tr>
     </thead>
 

@@ -19,16 +19,13 @@ code {
     monospace;
 }
 li{
-  width: 80px;
+  
   height: 35px;
   text-align: center;
 }
 li:hover{
  
- outline: rgb(96, 212, 96);
- border-radius: 10px;
- outline-style: solid;
- outline-width: 2px;
+background-color: #3b8ccf;
 }
 Table,th,td{
   border: 1px solid black;
@@ -98,7 +95,7 @@ width: 95%;
 .form-button {
   outline-color:rgb(221, 195, 45) ;
   outline-style:solid;
-  color: #ffffff;
+  color: black;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   cursor: pointer;

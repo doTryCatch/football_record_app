@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios"
 
-const Add = () => {
+export default function Add() {
   const [team, setTeam] = useState("");
   const [gamesPlayed, setGamesPlayed] = useState("");
   const [win, setWin] = useState("");
@@ -12,45 +12,31 @@ const Add = () => {
   const [points, setPoints] = useState("");
   const [year,setYear]=useState("")
   const [state,setState]=useState("")
-  const fetchData = async () => {
-    try {
-      
-      
+  const fetch = async () => {
         await axios.post('http://localhost:3002/',  { team, gamesPlayed,win,draw,loss,goalsFor,goalsAgainst,points,year   }).then((response)=>{
-          if(response.status==200){
+          response.status==200?setState(response.data.msg):setState("processing...")
            
-            setState(response.data.msg)
-           }else{
-            setState("processing...")
-           }
         });
-        
-   
-    } catch (error) {
-      console.error(error);
-      // Handle errors here
-    }
+
   };
 
 
 
-  const handleSubmit = (e) => {
+  const Submit = (e) => {
     e.preventDefault();
     setState("processing...")
-   fetchData()
-    // You can handle the form submission logic here
-    // For now, let's just log the form data
-   
+   fetch()
   };
 
   return (
     
     <section className="add m-2 flex-1 space-y-4 ">
       <hr />
-      <header className="title text-center  text-[30px]"> <h1>New Entry Area</h1></header>
+      <header className="title text-center  text-[30px]"> <h1>Add New Record</h1></header>
      
-        <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="container flex space-x-2">
+        <form onSubmit={Submit} className="space-y-4">
+        <div className="container ">
+          <div className="container-1 flex space-x-2">
           <div className="flex-2 pr-3">
             <label className="form-label" htmlFor="team">
               Team:
@@ -92,7 +78,6 @@ const Add = () => {
               required
             />
           </div>
-
           <div className="flex-1">
             <label className="form-label" htmlFor="loss">
               Loss:
@@ -107,6 +92,10 @@ const Add = () => {
               
             />
           </div>
+
+          </div>
+          <div className="container-2 flex space-x-2">
+         
 
           <div className="flex-1">
             <label className="form-label" htmlFor="draw">
@@ -180,6 +169,9 @@ const Add = () => {
             />
           </div>
           </div>
+         
+         
+          </div>
 
           <div className="button-container center space-x-4">
 
@@ -196,4 +188,3 @@ const Add = () => {
   );
 };
 
-export default Add;

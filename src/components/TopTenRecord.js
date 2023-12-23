@@ -12,17 +12,17 @@ const TopTenRecord=({data}) =>{
      
       <Table className="text-center border-solid m-2">
     <thead>
-      <tr>
+    <tr>
         <th>SN.</th>
-        <th>Team</th>
-        <th>Games Played</th>
-        <th>Win</th>
-        <th>Draw</th>
-        <th>Loss</th>
-        <th>Goals For</th>
-        <th>Goals Against</th>
-        <th>Points</th>
-        <th>Year</th>
+      
+       
+        {Object.keys(data[0]).map((key, idx) => {
+    if (idx > 0 && idx < Object.keys(data[0]).length - 1) {
+        return (<th key={idx}>{key}</th>);
+    }
+    return null; 
+})}
+
       </tr>
     </thead>
 

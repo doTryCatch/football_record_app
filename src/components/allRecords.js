@@ -1,26 +1,26 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
-function AllRecords({data}) {
+export default function AllRecords({data}) {
   return (
     <div className="TopTenRecord w-full">
     <div className="head text-bold text-[20px] text-center">
       
-      <h1>All Records</h1>
+      <h1>Overall Records</h1>
       </div>
       <hr />
     <Table className="text-center m-4">
     <thead>
       <tr>
         <th>SN.</th>
-        <th>Team</th>
-        <th>Games Played</th>
-        <th>Win</th>
-        <th>Draw</th>
-        <th>Loss</th>
-        <th>Goals For</th>
-        <th>Goals Against</th>
-        <th>Points</th>
-        <th>Year</th>
+      
+       
+        {Object.keys(data[0]).map((key, idx) => {
+    if (idx > 0 && idx < Object.keys(data[0]).length - 1) {
+        return (<th key={idx}>{key}</th>);
+    }
+    return null;
+})}
+
       </tr>
     </thead>
 
@@ -39,4 +39,3 @@ function AllRecords({data}) {
   )
 }
 
-export default AllRecords

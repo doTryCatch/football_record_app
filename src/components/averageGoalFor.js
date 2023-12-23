@@ -1,27 +1,26 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
-function AverageGoalFor({data}) {
+export default function AverageGoalFor({data}) {
   return (
     <div className="TopTenRecord w-full">
     <div className="head text-bold text-[20px] text-center">
       
-      <h1>Average GoalsFor Include for {data[0].Year}</h1>
+      <h1>All Records with Average GoalsFor Included of {data[0].Year}</h1>
       </div>  
       <hr />
     <Table className="text-center border-solid m-2">
     <thead>
-      <tr>
+    <tr>
         <th>SN.</th>
-        <th>Team</th>
-        <th>Games Played</th>
-        <th>Win</th>
-        <th>Draw</th>
-        <th>Loss</th>
-        <th>Goals For</th>
-        <th>Goals Against</th>
-        <th>Points</th>
-        <th>Year</th>
-        <th>Average GoalFor</th>
+      
+       
+        {Object.keys(data[0]).map((key, idx) => {
+    if (idx > 0 && key!="__v") {
+        return (<th key={idx}>{key}</th>);
+    }
+    return null; 
+})}
+
       </tr>
     </thead>
 
@@ -40,4 +39,3 @@ function AverageGoalFor({data}) {
   )
 }
 
-export default AverageGoalFor
