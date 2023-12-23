@@ -13,7 +13,7 @@ export default function Add() {
   const [year,setYear]=useState("")
   const [state,setState]=useState("")
   const fetch = async () => {
-        await axios.post('http://localhost:3002/',  { team, gamesPlayed,win,draw,loss,goalsFor,goalsAgainst,points,year   }).then((response)=>{
+        await axios.post('http://localhost:3001/',  { team, gamesPlayed,win,draw,loss,goalsFor,goalsAgainst,points,year   }).then((response)=>{
           response.status==200?setState(response.data.msg):setState("processing...")
            
         });

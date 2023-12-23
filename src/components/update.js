@@ -8,7 +8,7 @@ export default function Update(){
     const [state,setState]=useState("")
     const fetchData = async () => {
       try {
-       await axios.put("http://localhost:3002/", {
+       await axios.put("http://localhost:3001/", {
          
           data: {
               team,
