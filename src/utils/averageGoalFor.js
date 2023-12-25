@@ -5,7 +5,7 @@ export default function AverageGoalFor({data}) {
     <div className="TopTenRecord w-full">
     <div className="head text-bold text-[20px] text-center">
       
-      <h1>All Records with Average GoalsFor Included of {data[0].Year}</h1>
+      <h1> Records with Average Included  {data[0].Year}</h1>
       </div>  
       <hr />
     <Table className="text-center border-solid m-2">
