@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route,  Routes } from 'react-router-dom';
 import Layout from './utils/layout';
 
 import Add from './components/add'
+import Dashboard from "./components/dashboard"
 import Update from "./components/update"
 import Delete from "./components/delete"
 
@@ -15,6 +16,7 @@ root.render(
     <Router>
       <Layout>
         <Routes>
+        <Route path="/" element={<Dashboard/>} />
           <Route path="/Add" element={<Add/>} />
           <Route path="/Update" element={<Update/>} />
           <Route path="/Delete" element={<Delete/>} />
